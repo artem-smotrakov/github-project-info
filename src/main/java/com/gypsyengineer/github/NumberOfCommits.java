@@ -1,6 +1,5 @@
 package com.gypsyengineer.github;
 
-
 import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
@@ -8,17 +7,12 @@ import org.kohsuke.github.GitHub;
 import java.io.IOException;
 import java.util.Date;
 
-public class NumberOfCommits implements DataProvider {
+public class NumberOfCommits extends AbstractDataProvider {
 
-    private final String where;
-    private final String name;
-    private final GitHub github;
     private final long days;
 
     public NumberOfCommits(String where, String name, GitHub github, long days) {
-        this.where = where;
-        this.name = name;
-        this.github = github;
+        super(where, name, github);
         this.days = days;
     }
 

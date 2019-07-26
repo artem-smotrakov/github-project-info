@@ -59,9 +59,10 @@ public class ProjectInfoFetcher {
 
         DataProvider[] providers = {
                 new NumberOfCommits(where, name, github, 90),
+                new NumberOfStars(where, name, github),
         };
 
-        System.out.printf("Fetch data about %s%n", url);
+        System.out.printf("Let's fetch data about %s%n", url);
         for (DataProvider provider : providers) {
             provider.get();
         }
