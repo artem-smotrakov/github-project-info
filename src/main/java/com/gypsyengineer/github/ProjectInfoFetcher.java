@@ -60,6 +60,10 @@ public class ProjectInfoFetcher {
         DataProvider[] providers = {
                 new NumberOfCommits(where, name, github, 90),
                 new NumberOfStars(where, name, github),
+                new NumberOfWatchers(where, name, github),
+                new IsApache(where),
+                new IsEclipse(where),
+                new HasSecurityTeam(where),
         };
 
         System.out.printf("Let's fetch data about %s%n", url);

@@ -5,9 +5,9 @@ import org.kohsuke.github.GitHub;
 
 import java.io.IOException;
 
-public class NumberOfStars extends AbstractDataProvider {
+public class NumberOfWatchers extends AbstractDataProvider {
 
-    public NumberOfStars(String where, String name, GitHub github) {
+    public NumberOfWatchers(String where, String name, GitHub github) {
         super(where, name, github);
     }
 
@@ -19,6 +19,6 @@ public class NumberOfStars extends AbstractDataProvider {
     @Override
     public void get() throws IOException {
         GHRepository repository = github.getRepository(String.format("%s/%s", where, name));
-        System.out.printf("Stars: %d%n", repository.getStargazersCount());
+        System.out.printf("Watchers: %d%n", repository.getSubscribersCount());
     }
 }
