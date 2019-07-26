@@ -7,6 +7,9 @@ import java.net.URL;
 
 public class ProjectInfoFetcher {
 
+    private static final String usage =
+            "java -jar github-project-info-1.0-SNAPSHOT-all.jar [options]";
+
     public static void main(String... args) throws Exception {
         Options options = new Options();
         options.addOption( "h", "help", false,
@@ -28,19 +31,19 @@ public class ProjectInfoFetcher {
                 .desc("access token")
                 .build());
 
-        CommandLine commandLine = null;
+        CommandLine commandLine;
         try {
             commandLine = new DefaultParser().parse(options, args);
         } catch (ParseException e) {
             System.out.println(e);
             HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp(ProjectInfoFetcher.class.getCanonicalName(), options);
+            formatter.printHelp(usage, options);
             return;
         }
 
         if (commandLine.hasOption("h")) {
             HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp(ProjectInfoFetcher.class.getCanonicalName(), options);
+            formatter.printHelp(usage, options);
             return;
         }
 
